@@ -1,0 +1,37 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+header {
+    height: fit-content;
+    font-size: 25px;
+    display: grid;
+    grid-template-rows: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameboard {
+    height: 600px;
+    width: 600px;
+    border-width: 5px;
+    border-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.center {
+    display: grid;
+    justify-content: center;
+}
+
+.square_text {
+    height: 200px;
+    width: 200px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
