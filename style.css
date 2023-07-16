@@ -46,7 +46,7 @@ header {
     justify-content: center;
 }
 
-#x {
+#x_choice {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
     width: 200px;
@@ -54,7 +54,7 @@ header {
     justify-self: center;
 }
 
-#o {
+#o_choice {
     grid-row: 1 / span 1;
     grid-column: 2 / span 1;
     width: 200px;
