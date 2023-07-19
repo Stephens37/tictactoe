@@ -1,31 +1,35 @@
-const gameBoard = (() => {
-  const boardArray = []
-  return boardArray
-})()
-
-const player = (suit, who) => {
-  const getSuit = () => suit
-  const getWho = () => who
-  return {getSuit, getWho}
-}
-
 const xChoice = document.getElementById('x_choice')
 const oChoice = document.getElementById('o_choice')
 
-const playerChoice = ((controller, enemy) => {
+const player = (playerChoice) => {
   if (xChoice === true) {
-    controller = player.getSuit('x')
-    enemy = player.getSuit('y')
+    playerChoice.innerHTML = 'x'
   } else if (oChoice === true) {
-    controller = player.getSuit('o')
-    enemy = player.getSuit('x')
+    playerChoice.innerHTML = 'o'
   }
-  console.log(controller)
-  return { controller, enemy }
-})
+  return playerChoice
+}
 
-xChoice.addEventListener(onclick, playerChoice)
-oChoice.addEventListener(onclick, playerChoice)
+xChoice.addEventListener(onclick, player)
+oChoice.addEventListener(onclick, player)
+
+const enemy = (enemyChoice, controller) => {
+  if (controller.innerHTML === 'x') {
+    enemyChoice.innerHTML = 'o'
+  } else if (controller.innerHTML === 'o') {
+    enemyChoice.innerHTML = 'x'
+  }
+  return enemyChoice
+}
+
+xChoice.addEventListener(onclick, enemy)
+oChoice.addEventListener(onclick, enemy)
+
+const gameBoard = (() => {
+  const boardArray = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
+  const square = document.getElementsByClassName('square')
+  return { boardArray, square }
+})()
 
 // if player chooses x then player will equal const x and computer will equal const o
 // else player equals 
