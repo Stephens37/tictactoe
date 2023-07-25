@@ -4,6 +4,17 @@ html, body {
     font-family: 'Cutive Mono', monospace, sans-serif;
 }
 
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+
+.cell {
+    border-width: 10px;
+    border-color: black;
+}
+
 header {
     height: fit-content;
     font-size: 25px;
@@ -15,19 +26,15 @@ header {
 }
 
 .gameboard {
-    height: 600px;
-    width: 600px;
-    border-width: 5px;
-    border-color: black;
     display: grid;
+    justify-self: center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    justify-content: center;
-}
-
-.center {
-    display: grid;
-    justify-content: center;
+    height: 600px;
+    width: 600px;
+    border-width: 10px;
+    border-color: black;
+    background-color: brown;
 }
 
 .square_text {
