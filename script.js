@@ -1,22 +1,16 @@
-const gameBoard = (() => {
-  const rows = 3
-  const columns = 3
-  const board = []
 
-  for (let i = 0; i < rows; i++) {
-    board[i] = []
-    for (let j = 0; j < columns; j++) {
-      board[i].push(Cell())
+const gameBoard = (() => {
+  const boardButtons = (button) => {
+    for (i = 0; i < 9; i++) {
+      button = document.createElement('button')
+      button.innerHTML = 'x'
+      button.classList.add('button')
+      document.getElementsByClassName('gameboard').append(button)
     }
   }
 
-  const getBoard = () => board
-
-  const printBoard = (() => {
-    const boardWithSquareValues = board.map((row) => row.map((cell) => cell.getValue()))
-    console.log(boardWithSquareValues)
-  })()
-  return { getBoard, printBoard }
+  const getBoard = () => boardButtons
+  return { gameBoard, getBoard }
 })()
 
 function Cell () {
