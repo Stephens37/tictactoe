@@ -1,38 +1,21 @@
+const gameBoard = document.querySelector('.gameboard')
 
-const gameBoard = (() => {
-  const boardButtons = (button) => {
-    for (i = 0; i < 9; i++) {
-      button = document.createElement('button')
-      button.innerHTML = 'x'
-      button.classList.add('button')
-      document.getElementsByClassName('gameboard').append(button)
-    }
-  }
+const board = [
+  'x', 'o', 'x',
+  'o', 'x', 'o',
+  'x', 'o', 'x'
+]
 
-  const getBoard = () => boardButtons
-  return { gameBoard, getBoard }
-})()
-
-function Cell () {
-  let value = ''
-  const addMark = (player) => {
-    value = player
-  }
-  const printCells = (cell) => {
-    cell = document.createElement('button')
-    cell.className = 'cell'
-    cell.append(document.getElementsByClassName('gameboard'))
-    return cell
-  }
-
-  const getValue = () => value
-
-  return {
-    addMark,
-    getValue,
-    printCells
+function gameButtons () {
+  for (i = 0; i < board.length; i++) {
+    const xobuttons = document.createElement('button')
+    xobuttons.classList.add('xobuttons')
+    const t = document.createTextNode(board[i])
+    xobuttons.appendChild(t)
+    gameBoard.appendChild(xobuttons)
   }
 }
+window.onload = gameButtons()
 
 const gameFlow = (board, player) => {
   const getPlayerTurn = ((playerTurn) => {
@@ -51,11 +34,3 @@ const gameFlow = (board, player) => {
 
   return { getPlayerTurn }
 }
-
-/* const player = () => {
-  
-}
-
-const gameFlow = (() => {
-
-}) */
