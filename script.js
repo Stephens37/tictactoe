@@ -10,23 +10,41 @@ const gameFlow = () => {
   const getPlayerTurn = () => {
     for (i = 0; i < board.length; i++) {
       if (i % 2 === 0) {
-        this.indexOf(board) = 'o'
+        let button = document.querySelector('.xobuttons')
+        button.addEventListener('click', function (event) {
+          let num = parseInt(event.target.dataset.key)
+          board.splice(num, 0, 'x')
+          const t = document.createTextNode(board[i])
+          button.appendChild(t)
+          gameBoard.appendChild(button)
+        })
       } else {
-        this.indexOf(board) = 'x'
+        let button = document.querySelector('.xobuttons')
+        button.addEventListener('click', function (event) {
+          let num = parseInt(event.target.dataset.key)
+          board.splice(num, 0, 'o')
+          const t = document.createTextNode(board[i])
+          button.appendChild(t)
+          gameBoard.appendChild(button)
+        })
       }
     }
   }
-  return { getPlayerTurn }
+  getPlayerTurn()
 }
+gameFlow()
 
-function gameButtons () {
+ /* function gameButtons () {
   for (i = 0; i < board.length; i++) {
-    const xobuttons = document.createElement('button')
-    xobuttons.classList.add('xobuttons')
     const t = document.createTextNode(board[i])
     xobuttons.appendChild(t)
     gameBoard.appendChild(xobuttons)
     xobuttons.addEventListener('click', gameFlow)
   }
 }
-window.onload = gameButtons()
+window.onload = gameButtons() 
+
+ document.addEventListener('click', function (event) {
+  let num = parseInt(event.target.dataset.key)
+  board.splice(num, 0, 'x')
+}) */
