@@ -6,15 +6,13 @@ const board = [
   'x', 'o', 'x'
 ]
 
-const gameFlow = (player) => {
-  const getPlayerTurn = (playerTurn) => {
-    for (playerTurn = 1; playerTurn < board.length; playerTurn++) {
-      if (playerTurn % 2 === 0) {
-        player = 'o'
-        this.document.querySelector('.xobuttons').nodeValue = 'o'
+const gameFlow = () => {
+  const getPlayerTurn = () => {
+    for (i = 0; i < board.length; i++) {
+      if (i % 2 === 0) {
+        this.indexOf(board) = 'o'
       } else {
-        player = 'x'
-        this.document.querySelector('.xobuttons').nodeValue = 'x'
+        this.indexOf(board) = 'x'
       }
     }
   }
