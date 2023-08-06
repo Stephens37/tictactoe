@@ -21,6 +21,7 @@ const gameFlow = () => {
     board.splice(num, 0, playerXO())
     event.target.textContent = playerXO()
     console.log(playerXO())
+    event.target.disabled = true
   })
 }
 window.onload = gameFlow()
