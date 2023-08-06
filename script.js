@@ -19,7 +19,7 @@ const playerXO = () => {
 }
 
 const gameFlow = () => {
-  const button = document.querySelector('.xobuttons')
+  const button = document.querySelector('.gameboard')
   const igrok = playerXO()
   button.addEventListener('click', function (event) {
     playerXO()
