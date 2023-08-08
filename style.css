@@ -37,3 +37,10 @@ header {
     width: 200px;
     font-size: 25px;
 }
+
+#winner {
+    grid-row: 3 / span 1;
+    justify-self: center;
+    align-self: center;
+    font-size: 25px;
+}
