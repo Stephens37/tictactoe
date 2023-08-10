@@ -29,27 +29,77 @@ const gameFlow = (() => {
     event.target.textContent = playerXO()
     console.log(playerXO())
     event.target.disabled = true
-    const winner = document.querySelector('#winner')
-    if ((button0.textContent === 'x' && button1.textContent === 'x' && button2.textContent === 'x') ||
-    (button3.textContent === 'x' && button4.textContent === 'x' && button5.textContent === 'x') ||
-    (button6.textContent === 'x' && button7.textContent === 'x' && button8.textContent === 'x') ||
-    (button0.textContent === 'x' && button3.textContent === 'x' && button6.textContent === 'x') ||
-    (button1.textContent === 'x' && button4.textContent === 'x' && button7.textContent === 'x') ||
-    (button2.textContent === 'x' && button5.textContent === 'x' && button8.textContent === 'x') ||
-    (button0.textContent === 'x' && button4.textContent === 'x' && button8.textContent === 'x') ||
-    (button2.textContent === 'x' && button4.textContent === 'x' && button6.textContent === 'x')) {
-      winner.textContent = 'X wins'
-    } else if ((button0.textContent === 'x' && button1.textContent === 'x' && button2.textContent === 'x') ||
-    (button3.textContent === 'x' && button4.textContent === 'x' && button5.textContent === 'x') ||
-    (button6.textContent === 'x' && button7.textContent === 'x' && button8.textContent === 'x') ||
-    (button0.textContent === 'x' && button3.textContent === 'x' && button6.textContent === 'x') ||
-    (button1.textContent === 'x' && button4.textContent === 'x' && button7.textContent === 'x') ||
-    (button2.textContent === 'x' && button5.textContent === 'x' && button8.textContent === 'x') ||
-    (button0.textContent === 'x' && button4.textContent === 'x' && button8.textContent === 'x') ||
-    (button2.textContent === 'x' && button4.textContent === 'x' && button6.textContent === 'x')) {
-      winner.textContent = 'O wins'
-    } else if (board.length === 9 && winner.innerText === '') {
-      winner.textContent = 'Tie game'
-    }
+
+    const winFunction = (() => {
+      const bottomGrid = document.querySelector('#bottom_grid')
+      if ((button0.textContent === 'x' && button1.textContent === 'x' && button2.textContent === 'x') ||
+      (button3.textContent === 'x' && button4.textContent === 'x' && button5.textContent === 'x') ||
+      (button6.textContent === 'x' && button7.textContent === 'x' && button8.textContent === 'x') ||
+      (button0.textContent === 'x' && button3.textContent === 'x' && button6.textContent === 'x') ||
+      (button1.textContent === 'x' && button4.textContent === 'x' && button7.textContent === 'x') ||
+      (button2.textContent === 'x' && button5.textContent === 'x' && button8.textContent === 'x') ||
+      (button0.textContent === 'x' && button4.textContent === 'x' && button8.textContent === 'x') ||
+      (button2.textContent === 'x' && button4.textContent === 'x' && button6.textContent === 'x')) {
+        /* const xobuttons = document.querySelector('.xobuttons')
+        xobuttons.disabled = true */
+        const winner = document.createElement('div')
+        winner.setAttribute('id', 'winner')
+        bottomGrid.append(winner)
+        winner.textContent = 'X wins'
+
+        const resetButton = document.createElement('button')
+        resetButton.setAttribute('id', 'reset_button')
+        resetButton.innerText = 'Reset'
+        bottomGrid.append(resetButton)
+
+        resetButton.addEventListener('click', function () {
+          winner.remove()
+          resetButton.remove()
+        })
+
+        return resetButton
+      } else if ((button0.textContent === 'x' && button1.textContent === 'x' && button2.textContent === 'x') ||
+      (button3.textContent === 'x' && button4.textContent === 'x' && button5.textContent === 'x') ||
+      (button6.textContent === 'x' && button7.textContent === 'x' && button8.textContent === 'x') ||
+      (button0.textContent === 'x' && button3.textContent === 'x' && button6.textContent === 'x') ||
+      (button1.textContent === 'x' && button4.textContent === 'x' && button7.textContent === 'x') ||
+      (button2.textContent === 'x' && button5.textContent === 'x' && button8.textContent === 'x') ||
+      (button0.textContent === 'x' && button4.textContent === 'x' && button8.textContent === 'x') ||
+      (button2.textContent === 'x' && button4.textContent === 'x' && button6.textContent === 'x')) {
+        const winner = document.createElement('div')
+        winner.setAttribute('id', 'winner')
+        bottomGrid.append(winner)
+        winner.textContent = 'O wins'
+
+        const resetButton = document.createElement('button')
+        resetButton.setAttribute('id', 'reset_button')
+        resetButton.innerText = 'Reset'
+        bottomGrid.append(resetButton)
+
+        resetButton.addEventListener('click', function () {
+          winner.remove()
+          resetButton.remove()
+        })
+
+        return resetButton
+      } else if (board.length === 9) {
+        const winner = document.createElement('div')
+        winner.setAttribute('id', 'winner')
+        bottomGrid.append(winner)
+        winner.textContent = 'Tie game'
+
+        const resetButton = document.createElement('button')
+        resetButton.setAttribute('id', 'reset_button')
+        resetButton.innerText = 'Reset'
+        bottomGrid.append(resetButton)
+
+        resetButton.addEventListener('click', function () {
+          winner.remove()
+          resetButton.remove()
+        })
+
+        return resetButton
+      }
+    })()
   })
 })()
