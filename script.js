@@ -22,7 +22,31 @@ const playerXO = () => {
   return player
 }
 
+const gameStart = () => {
+  const bottomGrid = document.querySelector('#bottom_grid')
+  const setName = document.createElement('form')
+  bottomGrid.append(setName)
+
+  const inputName1 = document.createElement('input')
+  inputName1.setAttribute('type', 'text')
+  inputName1.setAttribute('name', 'inputname1')
+  inputName1.append(setName)
+
+  const inputName2 = document.createElement('input')
+  inputName2.setAttribute('type', 'text')
+  inputName2.setAttribute('name', 'inputname1')
+  inputName2.append(setName)
+
+  const submitButton = document.createElement('button')
+  submitButton.setAttribute('type', 'submit')
+  submitButton.setAttribute('id', 'submit')
+  submitButton.textContent = 'Submit'
+  setName.append(submitButton)
+  return { bottomGrid, setName, inputName1, inputName2, submitButton}
+}
+
 const gameFlow = (() => {
+  gameStart()
   const button = document.querySelector('.gameboard')
   button.addEventListener('click', function (event) {
     board.push(playerXO())
