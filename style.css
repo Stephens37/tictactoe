@@ -4,15 +4,6 @@ html, body {
     font-family: 'Cutive Mono', monospace, sans-serif;
 }
 
-form {
-    grid-column: 1 / span 3;
-}
-
-#submit {
-    height: 20px;
-    width: 100px;
-}
-
 body {
     display: grid;
     grid-template-columns: 1fr;
@@ -67,6 +58,6 @@ header {
 
 #reset_button {
     grid-column: 3 / span 1;
-    width: 100px;
-    height: 20px;
+    text-align: center;
 }
+
