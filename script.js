@@ -55,6 +55,19 @@ const gameFlow = (() => {
         resetButton.addEventListener('click', function () {
           winner.remove()
           resetButton.remove()
+          board.length = 0
+          const buttonTextReset = (() => {
+            button0.textContent = ''
+            button1.textContent = ''
+            button2.textContent = ''
+            button3.textContent = ''
+            button4.textContent = ''
+            button5.textContent = ''
+            button6.textContent = ''
+            button7.textContent = ''
+            button8.textContent = ''
+          })()
+          return buttonTextReset
         })
 
         return resetButton
