@@ -10,6 +10,8 @@ const button8 = document.querySelector('#button8')
 
 let board = []
 
+const form = document.getElementById('xo_form')
+
 const playerXO = () => {
   let player = ''
   for (i = 0; i < board.length; ++i) {
@@ -22,33 +24,22 @@ const playerXO = () => {
   return player
 }
 
-const gameStart = () => {
-  const bottomGrid = document.querySelector('#bottom_grid')
-  const setName = document.createElement('form')
-  bottomGrid.append(setName)
-
-  const inputName1 = document.createElement('input')
-  inputName1.setAttribute('type', 'text')
-  inputName1.setAttribute('name', 'inputname1')
-  inputName1.append(setName)
-
-  const inputName2 = document.createElement('input')
-  inputName2.setAttribute('type', 'text')
-  inputName2.setAttribute('name', 'inputname1')
-  inputName2.append(setName)
-
-  const submitButton = document.createElement('button')
-  submitButton.setAttribute('type', 'submit')
-  submitButton.setAttribute('id', 'submit')
-  submitButton.textContent = 'Submit'
-  setName.append(submitButton)
-  return { bottomGrid, setName, inputName1, inputName2, submitButton}
+const submitForm = () => {
+  const playerArray = []
+  const playerX = document.querySelector('#name1').innerHTML
+  const playerO = document.querySelector('#name2').innerHTML
+  playerArray.push(playerX, playerO)
+  console.log(playerX)
+  console.log(playerArray)
 }
 
+form.addEventListener('submit', submitForm)
+
 const gameFlow = (() => {
-  gameStart()
+  const playerForm = document.querySelector('#xo_form')
   const button = document.querySelector('.gameboard')
   button.addEventListener('click', function (event) {
+    playerForm.style.display = 'none'
     board.push(playerXO())
     event.target.textContent = playerXO()
     console.log(playerXO())
@@ -69,7 +60,7 @@ const gameFlow = (() => {
         const winner = document.createElement('div')
         winner.setAttribute('id', 'winner')
         bottomGrid.append(winner)
-        winner.textContent = 'X wins'
+        
 
         const resetButton = document.createElement('button')
         resetButton.setAttribute('id', 'reset_button')
@@ -80,6 +71,7 @@ const gameFlow = (() => {
           winner.remove()
           resetButton.remove()
           board.length = 0
+          playerForm.style.display = 'grid'
           const buttonTextReset = (() => {
             button0.textContent = ''
             button1.textContent = ''
@@ -106,7 +98,7 @@ const gameFlow = (() => {
         const winner = document.createElement('div')
         winner.setAttribute('id', 'winner')
         bottomGrid.append(winner)
-        winner.textContent = 'O wins'
+        winner.textContent = '{$name2} wins'
 
         const resetButton = document.createElement('button')
         resetButton.setAttribute('id', 'reset_button')
@@ -116,6 +108,20 @@ const gameFlow = (() => {
         resetButton.addEventListener('click', function () {
           winner.remove()
           resetButton.remove()
+          board.length = 0
+          playerForm.style.display = 'grid'
+          const buttonTextReset = (() => {
+            button0.textContent = ''
+            button1.textContent = ''
+            button2.textContent = ''
+            button3.textContent = ''
+            button4.textContent = ''
+            button5.textContent = ''
+            button6.textContent = ''
+            button7.textContent = ''
+            button8.textContent = ''
+          })()
+          return buttonTextReset
         })
 
         return resetButton
@@ -133,6 +139,19 @@ const gameFlow = (() => {
         resetButton.addEventListener('click', function () {
           winner.remove()
           resetButton.remove()
+          playerForm.style.display = 'grid'
+          const buttonTextReset = (() => {
+            button0.textContent = ''
+            button1.textContent = ''
+            button2.textContent = ''
+            button3.textContent = ''
+            button4.textContent = ''
+            button5.textContent = ''
+            button6.textContent = ''
+            button7.textContent = ''
+            button8.textContent = ''
+          })()
+          return buttonTextReset
         })
 
         return resetButton
