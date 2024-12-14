@@ -25,6 +25,7 @@ header {
     justify-self: center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    text-align: center;
     height: 600px;
     width: 600px;
     border-width: 10px;
@@ -35,7 +36,7 @@ header {
     color: brown;
     height: 200px;
     width: 200px;
-    font-size: 25px;
+    font-size: 75px;
 }
 
 #bottom {
@@ -53,7 +54,7 @@ header {
 
 #winner {
     grid-column: 1 / span 2;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #reset_button {

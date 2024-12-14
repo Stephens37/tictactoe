@@ -37,7 +37,7 @@ const gameFlow = (() => {
     const afterWin = () => {
       const xobuttons = document.querySelectorAll('.xobuttons')
       for (let i = 0; i < xobuttons.length; i++) {
-        xobuttons[i].disabled = false
+        xobuttons[i].disabled = true
       }
       const resetButton = document.createElement('button')
       resetButton.setAttribute('id', 'reset_button')
@@ -47,6 +47,9 @@ const gameFlow = (() => {
       resetButton.addEventListener('click', function () {
         winner.remove()
         resetButton.remove()
+        for (let i = 0; i < xobuttons.length; i++) {
+          xobuttons[i].disabled = false
+        }
         board.length = 0
         const buttonTextReset = (() => {
           button0.textContent = ''
